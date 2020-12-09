@@ -5,7 +5,7 @@ import json
 import requests
 
 WEBHOOK_VERIFY_TOKEN = 'test_faq_token'
-PAGE_ACCESS_TOKEN = 'EAAC5xQUuOt8BACMNqDZBcGQ8KCKJbN6N5pmQ7UUlCHnyBVaAZCMPJCplPG8Q0atKWJZCKSWkzbjlW73XYdgmao11ClfWPzrkoQsZC5ZCRKxbZC0QMwBsiGv05YlStZB5yvu2799ZAt2ZAABZAfUNBZAfIjwU49EizZAv9zKBx7jA3LMHMJ549BkI2CQ8VEckEPsQwWUZD'
+PAGE_ACCESS_TOKEN = 'EAAF4FdldOuQBANjWZBs1ZBXl0iDHQZAoOhPU5pZBQiJ3khl5fsYXjbMSa97V3xNcxY9YfWiBMbwDPJlpPtQ5ZBxFXAiOJV1f8VTKKp8rpnyuiX0FAecqFTcc0Gxr62Q6YJtsnUQx4E0HDfutIXXtXCdSUZBuKZATvz0belrOiG9LVrx1T8mfwvi'
 
 SEND_API_URL = 'https://graph.facebook.com/v5.0/me/messages?access_token=%s'\
   % PAGE_ACCESS_TOKEN
@@ -76,6 +76,7 @@ def webhook():
       return make_response('invalid params', 400)
   else: # POST
     body = json.loads(request.data)
+    send_message(body)
     print("hi")
     print(body)  
     #send_message(body)
